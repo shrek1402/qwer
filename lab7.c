@@ -9,7 +9,8 @@ int ntrl(int num)
     if (num > 9 && num < 100)
     {
         int j;
-
+        //yyyyy
+//kgjfgfdgfdhfdsfdsgfdsfdsfdsfdsfdsfdsgfdsgfdsfd
         for (j = 2; j <= sqrt(num); j++)
         {
             if (num % j == 0)
