@@ -23,7 +23,7 @@ int main()
         a[i] = (int *)malloc(stlb * sizeof(int));
     }
 
-    for (i = 0; i < str; i++)
+        for (i = 0; i < str; i++)
     {
         for (j = 0; j < stlb; j++)
         {
@@ -41,7 +41,7 @@ int main()
     printf("\n");
 
     D = (float *)malloc(str * sizeof(float));
-
+printf("D = ");
     for (i = 0; i < str; i++)
     {
         sum = 0;
@@ -51,11 +51,13 @@ int main()
         }
 
         D[i] = ((float)sum / (float)stlb);
-        printf("|%4.1f|\n", D[i]);
+
+        if (i == 0) printf("|%4.1f|\n", D[i]);
+        else printf("    |%4.1f|\n", D[0]);
     }
 
     G = (int*) malloc (stlb * sizeof (int));
-    printf("|");
+    printf("\nG = |");
     for (i=0; i<str; i++)
     {
         kol_otr = 0;
@@ -63,7 +65,8 @@ int main()
             if (a[j][i] < 0)
             kol_otr +=1;
   G[i] = kol_otr;
-    printf("%2d", G[i]);
+    if (i!= str-1)printf("%d, ", G[i]);
+    else printf("%d", G[i]);
     
     }
     printf("|");
