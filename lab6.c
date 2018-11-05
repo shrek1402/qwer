@@ -67,7 +67,7 @@ int main()
 
     srand(time(NULL));
     scanf("%d", &n);
-    printf("#    Znach.  (-1,0,1) \n");
+    printf("#     Znach.     (-1,0,1) \n");
     a = (int *)malloc(n * sizeof(int));
 
     for (i = 1; i <= n; i++)
@@ -95,7 +95,7 @@ int main()
         }
     }
 
-    printf("#    Znach.    (0,1) \n");
+    printf("#     Znach.     (0,1) \n");
 
     for (i = 1; i <= n; i++)
         printf("%-2d%6d%10d\n", i, a[i], ntrl(a[i]));
@@ -110,4 +110,5 @@ int main()
 
     arithmetick_mean_1 == arithmetick_mean_2 ? printf("The average value remains the same\n") : printf("The average value has changed\n");
     system("PAUSE");
+    free(a);
 }
