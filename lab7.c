@@ -5,9 +5,9 @@
 int main()
 {
     srand(time(NULL));
-    int  **a = NULL; // Матрица 
+    int **a = NULL;  // Матрица
     float *D = NULL; // Вектор среднего ариф. каждой строки
-    int   *G = NULL; // вектор кол-ва отриц. эл. каждого столбца
+    int *G = NULL;   // вектор кол-ва отриц. эл. каждого столбца
     int sum = 0, i, j, str, stlb, kol_otr = 0;
 
     printf("Enter size array\nStrok: ");
@@ -16,14 +16,14 @@ int main()
     printf("Stolbcov: ");
     scanf("%d", &stlb);
 
-    a = (int **)malloc(str * sizeof(int*));
+    a = (int **)malloc(str * sizeof(int *));
 
     for (i = 0; i < str; i++)
     {
         a[i] = (int *)malloc(stlb * sizeof(int));
     }
 
-        for (i = 0; i < str; i++)
+    for (i = 0; i < str; i++)
     {
         for (j = 0; j < stlb; j++)
         {
@@ -41,7 +41,7 @@ int main()
     printf("\n");
 
     D = (float *)malloc(str * sizeof(float));
-printf("D = ");
+    printf("D = ");
     for (i = 0; i < str; i++)
     {
         sum = 0;
@@ -52,22 +52,25 @@ printf("D = ");
 
         D[i] = ((float)sum / (float)stlb);
 
-        if (i == 0) printf("|%4.1f|\n", D[i]);
-        else printf("    |%4.1f|\n", D[0]);
+        if (i == 0)
+            printf("|%4.1f|\n", D[0]);
+        else
+            printf("    |%4.1f|\n", D[i]);
     }
 
-    G = (int*) malloc (stlb * sizeof (int));
+    G = (int *)malloc(stlb * sizeof(int));
     printf("\nG = |");
-    for (i=0; i<str; i++)
+    for (i = 0; i < str; i++)
     {
         kol_otr = 0;
-        for (j=0; j<stlb; j++)
+        for (j = 0; j < stlb; j++)
             if (a[j][i] < 0)
-            kol_otr +=1;
-  G[i] = kol_otr;
-    if (i!= str-1)printf("%d, ", G[i]);
-    else printf("%d", G[i]);
-    
+                kol_otr += 1;
+        G[i] = kol_otr;
+        if (i != str - 1)
+            printf("%d, ", G[i]);
+        else
+            printf("%d", G[i]);
     }
     printf("|");
 }
