@@ -8,19 +8,37 @@ int main()
     int **a = NULL;  // Матрица
     float *D = NULL; // Вектор среднего ариф. каждой строки
     int *G = NULL;   // вектор кол-ва отриц. эл. каждого столбца
-    int sum = 0, i, j, str, stlb, kol_otr = 0;
+    int sum = 0;
+    size_t i,j, str, stlb, kol_otr;
 
-    printf("Enter size array\nStrok: ");
-    scanf("%d", &str);
+    do
+    {
+        printf("Enter size array\nStrok: ");
+        scanf("%u", &str);
+    } while (str < 1);
 
-    printf("Stolbcov: ");
-    scanf("%d", &stlb);
+    do
+    {
+        printf("Stolbcov: ");
+        scanf("%u", &stlb);
+    } while (stlb < 1);
 
     a = (int **)malloc(str * sizeof(int *));
+    
+    if (!(a))
+    {
+        printf("Error!\n");
+        exit(EXIT_FAILURE);
+    }
 
     for (i = 0; i < str; i++)
     {
         a[i] = (int *)malloc(stlb * sizeof(int));
+        if (!(a[i]))
+        {
+            printf("Error!\n");
+            exit(EXIT_FAILURE);
+        }
     }
 
     for (i = 0; i < str; i++)
@@ -41,6 +59,11 @@ int main()
     printf("\n");
 
     D = (float *)malloc(str * sizeof(float));
+    if (!(D))
+    {
+        printf("Error!\n");
+        exit(EXIT_FAILURE);
+    }
     printf("D = ");
     for (i = 0; i < str; i++)
     {
@@ -59,18 +82,26 @@ int main()
     }
 
     G = (int *)malloc(stlb * sizeof(int));
+    if (!(G))
+    {
+        printf("Error!\n");
+        exit(EXIT_FAILURE);
+    }
     printf("\nG = |");
-    for (i = 0; i < str; i++)
+       for (i = 0; i < stlb; i++)
     {
         kol_otr = 0;
-        for (j = 0; j < stlb; j++)
+        for (j = 0; j < str; j++)
             if (a[j][i] < 0)
                 kol_otr += 1;
         G[i] = kol_otr;
-        if (i != str - 1)
+
+        if (i != stlb - 1)
             printf("%d, ", G[i]);
         else
             printf("%d", G[i]);
     }
-    printf("|");
+    printf("|\n");
+    system("PAUSE");
+    return(EXIT_SUCCESS);
 }
