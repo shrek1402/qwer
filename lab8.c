@@ -5,19 +5,18 @@
 main()
 {
 
-    int i, j, gr_left, gr_right, g_1, g_2;
+    int i, j, gr_left, gr_right, g_1, g_2,m=0;
     int k = 0, k_max;
     char st[100];
 
     printf("Vvedite sctroky: ");
     gets(st);
-
     printf("Stroka: %s\n", st);
     for (i = gr_right; i <= strlen(st); i++)
         if (st[i] == ' ' || st[i] == '\0')
         {
             k = 0;
-            gr_left = gr_right;
+            gr_left = gr_right + m;
             gr_right = i;
 
             for (j = gr_left; j < gr_right; j++)
@@ -30,6 +29,7 @@ main()
                 g_2 = gr_right;
             }
         }
-    for (i = g_1 + 1; i < g_2; i++)
+    for (i = g_1; i < g_2; i++)
+        if (st[i] != ' ')
         printf("%c", st[i]);
 }

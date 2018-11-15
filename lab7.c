@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <stdint.h>
 int main()
 {
     srand(time(NULL));
@@ -9,28 +9,31 @@ int main()
     float *D = NULL; // Вектор среднего ариф. каждой строки
     int *G = NULL;   // вектор кол-ва отриц. эл. каждого столбца
     int sum = 0;
-    size_t i,j, str, stlb, kol_otr;
+    size_t i, j, str, stlb, kol_otr;
 
+//Ввод кол-ва строк
     do
     {
         printf("Enter size array\nStrok: ");
-        scanf("%u", &str);
+        scanf("%lu", &str);
     } while (str < 1);
 
+//Ввод кол-ва столбцов
     do
     {
         printf("Stolbcov: ");
-        scanf("%u", &stlb);
+        scanf("%lu", &stlb);
     } while (stlb < 1);
 
+//Создание массива указателей строк
     a = (int **)malloc(str * sizeof(int *));
-    
     if (!(a))
     {
         printf("Error!\n");
         exit(EXIT_FAILURE);
     }
 
+//Создание массива указателей столбцов
     for (i = 0; i < str; i++)
     {
         a[i] = (int *)malloc(stlb * sizeof(int));
@@ -40,8 +43,7 @@ int main()
             exit(EXIT_FAILURE);
         }
     }
-
-
+//Заполнение двумерного массива
     for (i = 0; i < str; i++)
     {
         for (j = 0; j < stlb; j++)
@@ -49,6 +51,7 @@ int main()
             a[i][j] = rand() % 21 - 10;
         }
     }
+//Вывод двумерного массива
     for (i = 0; i < str; i++)
     {
         for (j = 0; j < stlb; j++)
@@ -56,9 +59,9 @@ int main()
 
         printf("\n");
     }
-
     printf("\n");
 
+// Вектор среднего ариф. каждой строки
     D = (float *)malloc(str * sizeof(float));
     if (!(D))
     {
@@ -82,6 +85,7 @@ int main()
             printf("    |%4.1f|\n", D[i]);
     }
 
+//Вектор кол-ва отрицательных элементов в каждой строке
     G = (int *)malloc(stlb * sizeof(int));
     if (!(G))
     {
@@ -89,7 +93,7 @@ int main()
         exit(EXIT_FAILURE);
     }
     printf("\nG = |");
-       for (i = 0; i < stlb; i++)
+    for (i = 0; i < stlb; i++)
     {
         kol_otr = 0;
         for (j = 0; j < str; j++)
@@ -103,6 +107,14 @@ int main()
             printf("%d", G[i]);
     }
     printf("|\n");
+    
+//Освобождение памяти
+    free(G);
+    free(D);
+    for (i = 0; i < str; i++)
+        free(a[i]);
+    free(a);
+
     system("PAUSE");
-    return(EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }
