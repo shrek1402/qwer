@@ -41,6 +41,7 @@ int main()
         }
     }
 
+
     for (i = 0; i < str; i++)
     {
         for (j = 0; j < stlb; j++)
