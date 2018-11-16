@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* простая программа игры в крестики-нолики */
 #define SPACE ' '
 char matrix[3][3] = {/* матрица для крестиков-ноликов */
                      {SPACE, SPACE, SPACE},

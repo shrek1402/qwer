@@ -14,23 +14,25 @@ unsigned long long int perevorot(unsigned long long int y)
 
 void polindrom(unsigned long long int *x)
 {
-    int i = 0;
+    int i; 
     while ((*x) != perevorot(*x))
     {
         i++;
         printf("i= %llu\n", i);
         printf("x= %llu\n", *x);
-        printf("p= %llu\n", perevorot(*x));
+        printf("p= %llu\n\n", perevorot(*x));
         (*x) += perevorot(*x);
     }
-    printf("i = %llu\n", i);
+
 }
 
-int main()
+int main() 
 {
     int m = 0;
     unsigned long long int num;
+    do{
     scanf("%llu", &num);
     polindrom(&num);
-    printf("***%llu***", num);
+    printf("***%llu***\n", num);
+    }while (num != 0);
 }
