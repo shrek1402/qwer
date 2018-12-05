@@ -14,7 +14,7 @@ unsigned long long int perevorot(unsigned long long int y)
 
 void polindrom(unsigned long long int *x)
 {
-    int i; 
+    int i=0; 
     while ((*x) != perevorot(*x))
     {
         i++;

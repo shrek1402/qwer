@@ -55,18 +55,18 @@ int main()
             a[i][j] = rand() % 10;
         }
     }
-    for (int i = 0; i < str; i++)
+    for (i = 0; i < str; i++)
     {
-        for (int j = 0; j < stlb; j++)
+        for (j = 0; j < stlb; j++)
             printf("%4d", a[i][j]);
 
         printf("\n");
     }
     printf("\n");
     replace_even_element(a, str, stlb);
-    for (int i = 0; i < str; i++)
+    for (i = 0; i < str; i++)
     {
-        for (int j = 0; j < stlb; j++)
+        for (j = 0; j < stlb; j++)
             printf("%4d", a[i][j]);
 
         printf("\n");

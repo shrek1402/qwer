@@ -7,7 +7,7 @@ int kr_5(int **array)
 
     for (i = 0; i < 5; i++)
         for (j = 0; j < 5; j++)
-            if (array[i][j] % 5 == 0)
+            if (array[i][j] % 5 == 0 && array[i][j]!=0)
                 k++;
     return (k);
 }
@@ -34,17 +34,17 @@ int main()
         }
     }
 
-    for (int i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (j = 0; j < 5; j++)
         {
             a[i][j] = rand() % 10;
         }
     }
 
-    for (int i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (j = 0; j < 5; j++)
         {
             printf("%2d", a[i][j]);
         }

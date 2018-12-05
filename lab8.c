@@ -2,34 +2,38 @@
 #include <string.h>
 #include <conio.h>
 
-main()
+int main()
 {
 
-    int i, j, gr_left, gr_right, g_1, g_2,m=0;
-    int k = 0, k_max;
-    char st[100];
+	int i, j=0, gr_left=0, gr_right=0, g_1, g_2,m=0;
+	int k = 0, k_max=0;
+		char st[100];
 
-    printf("Vvedite sctroky: ");
-    gets(st);
-    printf("Stroka: %s\n", st);
-    for (i = gr_right; i <= strlen(st); i++)
-        if (st[i] == ' ' || st[i] == '\0')
-        {
-            k = 0;
-            gr_left = gr_right + m;
-            gr_right = i;
+	printf("Vvedite sctroky: ");
+	gets(st);
+	printf("Stroka: %s\n", st);
+	for (i = gr_right; i <= strlen(st); i++)
+		if (st[i] == ' ' || st[i] == '\0')
+		{
+			k = 0;
+			gr_left = gr_right;
+			gr_right = i;
 
-            for (j = gr_left; j < gr_right; j++)
-                if (st[j] == 't' || st[j] == 'T')
-                    k++;
-            if (k > k_max)
-            {
-                k_max = k;
-                g_1 = gr_left;
-                g_2 = gr_right;
-            }
-        }
-    for (i = g_1; i < g_2; i++)
-        if (st[i] != ' ')
-        printf("%c", st[i]);
+			for (j = gr_left; j < gr_right; j++)
+				if (st[j] == 't' || st[j] == 'T')
+					k++;
+			if (k > k_max)
+			{
+				k_max = k;
+				g_1 = gr_left;
+				g_2 = gr_right;
+			}
+		}
+	printf("Bolshe vsego t: ");
+	for (m = g_1; m < g_2; m++)
+		if (st[m] != ' ')
+			printf("%c", st[m]);
+	printf("\n");
+	system("PAUSE");
+	return(0);
 }

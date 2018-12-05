@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void main()
+int main()
 {
+	int i,j,vrem;
     struct data
     {
         int num;
@@ -24,21 +25,25 @@ void main()
                                 10, "Dimova V. V.", "W", 1991, 2010};
 
     int n = sizeof(data_array) / sizeof(data_array[0]);
-    for (int i = 0; i < n; i++)
+    for(i = 0; i < n; i++)
         printf("%-6d%-20s%-s%8d%8d \n", data_array[i].num, data_array[i].fio,
                data_array[i].gender, data_array[i].gr, data_array[i].gpnr);
 
-    for (int i = 0; i < 10; i++)
-        for (int j = 0; j < 9; j++)
+    for (i = 0; i < 10; i++)
+        for (j = 0; j < 9; j++)
             if (strcmp(data_array[j].fio, data_array[j + 1].fio) > 0)
             {
+            	vrem=data_array[j+1].num;
+            	data_array[j+1].num = data_array[j].num;
+            	data_array[j].num = vrem;u
                 tmp = data_array[j];
                 data_array[j] = data_array[j + 1];
                 data_array[j + 1] = tmp;
             }
 
     printf("\n");
-    for (int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
         printf("%-6d%-20s%-s%8d%8d \n", data_array[i].num, data_array[i].fio,
                data_array[i].gender, data_array[i].gr, data_array[i].gpnr);
+               return(0);
 }
